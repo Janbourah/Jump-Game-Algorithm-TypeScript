@@ -7,8 +7,10 @@ While this problem can be solved using Dynamic Programming, a Greedy approach is
 # Code Walkthrough
 
 1. Initialization
+```
    - let maxReach = 0;
      const target = nums.length - 1;
+```       
      We start at index 0, so our initial maxReach is 0. We also define our target as the last index of the array.
 
 2. Iteration and Dead-End Check
