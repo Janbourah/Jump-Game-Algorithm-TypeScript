@@ -7,26 +7,26 @@ While this problem can be solved using Dynamic Programming, a Greedy approach is
 # Code Walkthrough
 
 1. Initialization
-   let maxReach = 0;
-   const target = nums.length - 1;
-   We start at index 0, so our initial maxReach is 0. We also define our target as the last index of the array.
+   - let maxReach = 0;
+     const target = nums.length - 1;
+     We start at index 0, so our initial maxReach is 0. We also define our target as the last index of the array.
 
 2. Iteration and Dead-End Check
-   for (let i = 0; i < nums.length; i++) {
-   if (i > maxReach) {
-   return false;
-   }}
-   We loop through each index i. At the very beginning of the loop, we perform a crucial check: Is the current index i greater than our maxReach? If it is, that means we are completely cut off. We encountered a 0 earlier that prevented us from reaching i. We immediately return false.
+   - for (let i = 0; i < nums.length; i++) {
+     if (i > maxReach) {
+     return false;
+     }}
+     We loop through each index i. At the very beginning of the loop, we perform a crucial check: Is the current index i greater than our maxReach? If it is, that means we are completely cut off. We encountered a 0 earlier that prevented us from reaching i. We immediately return false.
 
 3. Greedily Updating the Reach
-   maxReach = Math.max(maxReach, i + nums[i]);
-   If we successfully reach index i, we calculate the maximum reach from this new position by adding the current index to the jump value at that index (i + nums[i]). We then update maxReach to be the higher value between its current state and this new jump potential.
+   - maxReach = Math.max(maxReach, i + nums[i]);
+     If we successfully reach index i, we calculate the maximum reach from this new position by adding the current index to the jump value at that index (i + nums[i]). We then update maxReach to be the higher value between its current state and this new jump potential.
 
 4. Early Success Check
-   if (maxReach >= target) {
-   return true;
-   }
-   Optimization: We don't need to finish looping through the entire array. The moment our maxReach is greater than or equal to the target index, we know it's possible to reach the end, so we return true immediately.
+   - if (maxReach >= target) {
+     return true;
+     }
+     Optimization: We don't need to finish looping through the entire array. The moment our maxReach is greater than or equal to the target index, we know it's possible to reach the end, so we return true immediately.
 
 # Complexity Analysis
 
